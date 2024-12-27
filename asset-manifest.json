@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/coin_challenge/static/css/main.58ce69e5.css",
-    "main.js": "/coin_challenge/static/js/main.f7826c72.js",
+    "main.js": "/coin_challenge/static/js/main.cee494c6.js",
     "index.html": "/coin_challenge/index.html",
-    "main.f7826c72.js.map": "/coin_challenge/static/js/main.f7826c72.js.map"
+    "main.cee494c6.js.map": "/coin_challenge/static/js/main.cee494c6.js.map"
   },
   "entrypoints": [
     "static/css/main.58ce69e5.css",
-    "static/js/main.f7826c72.js"
+    "static/js/main.cee494c6.js"
   ]
 }
