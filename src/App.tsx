@@ -1,6 +1,9 @@
 import "./index.css";
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import Router from "./Router";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { HelmetProvider } from "react-helmet-async";
+import Header from "./components/Header";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -64,12 +67,21 @@ a {
 }
 `;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  margin: 0 auto;
+`;
+
 function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>Hello</h1>
-      <Router />
+      <Container>
+        <Router />
+      </Container>
+      <ReactQueryDevtools initialIsOpen={true} />
     </>
   );
 }
