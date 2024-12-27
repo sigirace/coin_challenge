@@ -82,7 +82,7 @@ export default function Coin() {
   const setHeaderTitle = useSetRecoilState(headerTitleAtom);
   useEffect(() => {
     setHeaderTitle(state?.name ? state.name : "Loading...");
-  }, [setHeaderTitle, state?.name]);
+  }, []);
 
   const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(
     ["info", coinId],
@@ -91,7 +91,7 @@ export default function Coin() {
   const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
     ["tickers", coinId],
     () => fetchCoinTickers(coinId),
-    { refetchInterval: 10000 }
+    { refetchInterval: 100000 }
   );
   const loading = infoLoading || tickersLoading;
   return (
@@ -142,10 +142,10 @@ export default function Coin() {
 
           <Switch>
             <Route path={`/:coinId/price`}>
-              <Price />
+              <Price coinID={coinId} />
             </Route>
             <Route path={`/:coinId/chart`}>
-              <Chart />
+              <Chart coinID={coinId} />
             </Route>
           </Switch>
         </>
