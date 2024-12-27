@@ -30,7 +30,7 @@ const Img = styled.img`
 export default function Card(coin: ICoin) {
   return (
     <CardContainer>
-      <Link to={{ pathname: `/${coin.id}` }}>
+      <Link to={{ pathname: `/${coin.id}`, state: { name: coin.name } }}>
         <Img src={`https://cryptocurrencyliveprices.com/img/${coin.id}.png`} />
         {coin.name} &rarr;
       </Link>

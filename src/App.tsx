@@ -82,9 +82,11 @@ function App() {
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyle />
-        <Container>
-          <Router />
-        </Container>
+        <HelmetProvider>
+          <Container>
+            <Router />
+          </Container>
+        </HelmetProvider>
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={true} />
     </>

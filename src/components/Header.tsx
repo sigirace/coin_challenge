@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { isDarkAtom } from "../atom";
+import { headerTitleAtom, isDarkAtom } from "../atom";
 
 const Container = styled.header`
   display: flex;
@@ -49,15 +49,18 @@ export default function Header() {
     setIsDark((prev) => {
       return !prev;
     });
+
+  const headerTitle = useRecoilValue(headerTitleAtom);
+
   return (
     <Container>
       <HeaderColumn>
-        <Icon className="fas fa-coins"></Icon>
+        <Link to="/">
+          <Icon className="fas fa-coins"></Icon>
+        </Link>
       </HeaderColumn>
       <HeaderColumn>
-        <Link to="/">
-          <Title>Coin Challenge</Title>
-        </Link>
+        <Title>{headerTitle}</Title>
       </HeaderColumn>
       <HeaderColumn>
         <DarkModeButton
