@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { ICoin } from "../interface";
 
 const CardContainer = styled.div`
-  background-color: white;
-  color: black;
+  background-color: ${(props) => props.theme.cardBgColor};
+  color: ${(props) => props.theme.cardTextColor};
+  border: 1px solid ${(props) => props.theme.borderColor};
   border-radius: 15px;
   margin-bottom: 10px;
   a {
@@ -15,7 +16,7 @@ const CardContainer = styled.div`
   }
   &:hover {
     a {
-      color: red;
+      color: ${(props) => props.theme.accentColor};
     }
   }
 `;

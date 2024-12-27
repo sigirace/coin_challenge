@@ -16,7 +16,6 @@ export default function Coins() {
     "allCoins",
     fetchCoins
   );
-  console.log(coins);
   return (
     <>
       {coinLoading ? (

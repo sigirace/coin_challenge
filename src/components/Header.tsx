@@ -1,5 +1,7 @@
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { isDarkAtom } from "../atom";
 
 const Container = styled.header`
   display: flex;
@@ -27,6 +29,7 @@ const HeaderColumn = styled.div`
 const Icon = styled.i`
   font-size: 18px;
   left: 10px;
+  color: ${(props) => props.theme.textColor};
 `;
 
 const Title = styled.h1`
@@ -35,12 +38,17 @@ const Title = styled.h1`
 `;
 
 const DarkModeButton = styled.i`
-  color: white;
+  color: ${(props) => props.theme.textColor};
   font-size: 18px;
   cursor: pointer;
 `;
 
 export default function Header() {
+  const [isDark, setIsDark] = useRecoilState(isDarkAtom);
+  const toggleDarkMode = () =>
+    setIsDark((prev) => {
+      return !prev;
+    });
   return (
     <Container>
       <HeaderColumn>
@@ -52,7 +60,10 @@ export default function Header() {
         </Link>
       </HeaderColumn>
       <HeaderColumn>
-        <DarkModeButton className="fas fa-moon"></DarkModeButton>
+        <DarkModeButton
+          className={isDark ? "fas fa-sun" : "fas fa-moon"}
+          onClick={toggleDarkMode}
+        ></DarkModeButton>
       </HeaderColumn>
     </Container>
   );
